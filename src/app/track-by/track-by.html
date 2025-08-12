@@ -1,0 +1,4 @@
+<button (click)="addItem()">Thêm item</button>
+<ul>
+  <li *ngFor="let item of items; trackBy: trackById">{{ item.name }}</li>
+</ul>

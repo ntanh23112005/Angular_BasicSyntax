@@ -1,0 +1,34 @@
+<!-- Tham chiếu giá trị của biến {{properties}} từ class lên templates -->
+<h2>1. Interpolation</h2>
+<p>Xin chào {{ name }}</p>
+
+<!-- Tham chiếu giá trị của biến vào input value -->
+<h2>2. Property Binding</h2>
+<input type="text" [value]="name" />
+
+<!-- Event binding onClclick -->
+<h2>3. Event Binding</h2>
+<button (click)="sayHello()">Click để chào</button>
+<p>{{ message }}</p>
+
+<!-- Tham chiếu giá trị 2 chiều -->
+<h2>4. Two-way binding</h2>
+<input type="text" [(ngModel)]="name" placeholder="Nhập tên đe" />
+<p>Tên 2 way binding: {{ name }}</p>
+
+<!-- Áp dụng tham chiếu biến và hàm sự kiện onClick -->
+<h2>5. Counter</h2>
+<p>Count: {{ count }}</p>
+<button (click)="increase()">Tăng count</button>
+<button (click)="reset()">Reset</button>
+
+<!-- Show hình ảnh qua [src]  -->
+<h2>6. Show image</h2>
+<img [src]="imgUrl" alt="" />
+
+<!-- Truyền từ cha -> con & con -> cha  -->
+<h2>7. Props - Emit</h2>
+<p>Nhận từ cha: {{ title }}</p>
+<input [(ngModel)]="childName" />
+<p>Dữ liệu truyền lên cha: {{ childName }}</p>
+<button (click)="sendName()">Gửi lên cha</button>

@@ -1,0 +1,29 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <label>Email:</label>
+  <input formControlName="email" /> <br />
+  <div
+    *ngIf="
+      registerForm.get('email')?.invalid && registerForm.get('email')?.touched
+    "
+  >
+    Email không hợp lệ
+  </div>
+
+  <label>Password:</label>
+  <input type="password" formControlName="password" /> <br />
+  <div
+    *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched"
+  >
+    Mật khẩu phải có ít nhất 6 ký tự
+  </div>
+
+  <label>Confirm Password:</label>
+  <input type="password" formControlName="confirmPassword" /> <br />
+  <div
+    *ngIf="registerForm.errors?.['notMatching'] && registerForm.get('confirmPassword')?.touched"
+  >
+    Mật khẩu không khớp
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid">Đăng ký</button>
+</form>

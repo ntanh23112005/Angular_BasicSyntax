@@ -1,0 +1,8 @@
+<h2>*ngIf example</h2>
+<button (click)="toogleShow()">Toggle hiển thị</button>
+<p *ngIf="isVisible">Visible(true) đã hiển thị</p>
+
+<h2>*ngFor example</h2>
+<ul>
+  <li *ngFor="let user of users; index as i">{{ i + 1 }} - {{ user }}</li>
+</ul>

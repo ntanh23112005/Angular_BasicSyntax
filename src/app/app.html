@@ -1,0 +1,48 @@
+<h1>{{ appTitle() }}</h1>
+<!-- signal phải gọi hàm -->
+<hr />
+
+<!-- Gọi HelloComponent -->
+<app-hello [title]="parentMessage" (nameChanged)="onNameChanged($event)">
+</app-hello>
+<p>Data nhận từ con: {{ childData }}</p>
+<hr />
+
+<!-- Life-cycle  -->
+<button (click)="toggle()">Toggle Demo</button>
+<app-life-cycle *ngIf="showLifeCycle"></app-life-cycle>
+<hr />
+
+<!-- ngIf - ngFor  -->
+<app-ng-if-ng-for></app-ng-if-ng-for>
+<hr />
+
+<!-- ngClass - ngStyle  -->
+<app-ng-class-ng-style></app-ng-class-ng-style>
+<hr />
+
+<!-- Pipes  -->
+<app-pipes></app-pipes>
+<hr />
+
+<!-- Service counter 1 -->
+<h2>Share service component</h2>
+<app-counter-service></app-counter-service>
+<!-- Service counter 2 -->
+<app-counter-service-2></app-counter-service-2>
+<hr />
+
+<!-- Router  -->
+<h2>Router</h2>
+<nav>
+  <a routerLink="/">Home</a> | <a routerLink="/product/123">Product 123</a> |
+  <a routerLink="/admin">Admin</a> |
+  <button (click)="authService.login()">Đăng nhập</button> |
+  <button (click)="authService.logout()">Đăng xuất</button>
+  <button><a href="/register">Đăng ký</a></button>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- Track By  -->
+<h2>TrackBy - OnPush</h2>
+<app-track-by></app-track-by>

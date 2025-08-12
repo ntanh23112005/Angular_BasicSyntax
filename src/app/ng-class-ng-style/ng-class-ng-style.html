@@ -1,0 +1,9 @@
+<h2>ngClass - ngStyle example</h2>
+<p
+  [ngClass]="{ highlight: isHighlight }"
+  [ngStyle]="{ 'font-size.px': fontSize }"
+>
+  Văn bản thay đổi style bằng Attribute Directives
+</p>
+<button (click)="isHighlight = !isHighlight">Toggle Highlight</button>
+<button (click)="fontSize = fontSize + 2">Tăng Font Size</button>
