@@ -10,9 +10,11 @@ import { Pipes } from './pipes/pipes';
 import { CounterServiceComponent } from './counter-service/counter-service';
 import { CounterService2Component } from './counter-service-2/counter-service-2';
 import { AuthService } from './services/auth';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/AuthInterceptor';
 import { TrackBy } from './track-by/track-by';
+import { Post } from './post/post';
+import { HttpLink } from '@apollo/client';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +34,7 @@ import { TrackBy } from './track-by/track-by';
     CounterService2Component,
     RouterModule,
     TrackBy,
+    Post,
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],

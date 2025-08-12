@@ -18,13 +18,24 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { APOLLO_OPTIONS, Apollo } from 'apollo-angular'; // Thêm Apollo vào imports
+import { HttpLink } from 'apollo-angular/http';
+import { createApollo } from './graphql.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes, withPreloading(PreloadAllModules)), // bật preload
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withInterceptorsFromDi()), // import http client
+    provideHttpClient(withInterceptorsFromDi()),
+    // Cấu hình Apollo
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: createApollo,
+      deps: [HttpLink],
+    },
+    Apollo, // QUAN TRỌNG: Phải thêm service Apollo vào providers
+    HttpLink,
   ],
 };

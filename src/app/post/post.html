@@ -1,0 +1,32 @@
+<h1>Danh sách bài viết</h1>
+
+<!-- Form thêm mới -->
+<div *ngIf="!editingPost" class="post-form">
+  <h2>Thêm bài viết mới</h2>
+  <input type="text" [(ngModel)]="newPost.title" placeholder="Tiêu đề" />
+  <textarea [(ngModel)]="newPost.body" placeholder="Nội dung"></textarea>
+  <button (click)="addPost()">Thêm mới</button>
+</div>
+
+<!-- Form chỉnh sửa -->
+<div *ngIf="editingPost" class="post-form">
+  <h2>Cập nhật bài viết</h2>
+  <input type="text" [(ngModel)]="editingPost.title" placeholder="Tiêu đề" />
+  <textarea [(ngModel)]="editingPost.body" placeholder="Nội dung"></textarea>
+  <button (click)="updatePost()">Cập nhật</button>
+  <button (click)="cancelEdit()">Hủy</button>
+</div>
+
+<!-- Danh sách bài viết -->
+<ul class="post-list">
+  <li *ngFor="let post of posts">
+    <div class="post-content">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+    </div>
+    <div class="post-actions">
+      <button (click)="startEdit(post)">Sửa</button>
+      <button (click)="deletePost(post.id)">Xóa</button>
+    </div>
+  </li>
+</ul>
